@@ -2,14 +2,14 @@ import {Toasted as T} from './js/toast';
 import ToastComponent from './toast.vue';
 
 const Toasted = {
-    install(Vue, options) {
+    install(app, options) {
         if (!options) {
             options = {};
         }
 
         const Toast = new T(options);
-        Vue.component('toasted', ToastComponent);
-        Vue.toasted = Vue.prototype.$toasted = Toast;
+        app.component('toasted', ToastComponent);
+        app.toasted = app.config.globalProperties.$toasted = Toast;
     }
 };
 
